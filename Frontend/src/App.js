@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import './App.css';
 import Main from './Upload-Post/Main';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
