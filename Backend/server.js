@@ -22,6 +22,23 @@ const pool =mysql.createPool({
 
 
 
+app.post('/user', (req, res) => {
 
+    pool.getConnection((err, connection) => {
+        if(err) throw err
+        console.log(`connected as id ${connection.threadId}`)
+        console.log(req.body)
+        connection.query('INSERT INTO user SET ?', [req.body], (err, rows) => {
+            connection.release() // return the connection to pool
+
+            if(!err) {
+                res.send(`Beer with the Record ID: ${[req.body.email]} has been added.`)
+            } else {
+                console.log(err)
+            }
+
+        })
+    })
+})
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

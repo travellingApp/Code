@@ -7,7 +7,7 @@ app.get('/user', (req, res) => {
         if(err) throw err
         console.log(`connected as id ${connection.threadId}`)
 
-        connection.query('SELECT * from employee WHERE id = ?', [req.body.id], (err, rows) => {
+        connection.query('SELECT * from user WHERE email = ?', [req.body.email], (err, rows) => {
             connection.release() // return the connection to pool
 
             if(!err) {
@@ -24,7 +24,7 @@ app.get('', (req, res) => {
     pool.getConnection((err, connection) => {
         if(err) throw err
         console.log('connected as id ' + connection.threadId)
-        connection.query('SELECT * from employee ', (err, rows) => {
+        connection.query('SELECT * from user ', (err, rows) => {
             connection.release() // return the connection to pool
 
             if (!err) {
@@ -44,7 +44,7 @@ app.delete(':/id', (req, res) => {
     pool.getConnection((err, connection) => {
         if(err) throw err
         console.log(`connected as id ${connection.threadId}`)
-        connection.query('DELETE from employee WHERE id = ?', [req.body.id], (err, rows) => {
+        connection.query('DELETE from user WHERE id = ?', [req.body.id], (err, rows) => {
             connection.release() // return the connection to pool
 
             if(!err) {
@@ -63,7 +63,7 @@ app.post('/user', (req, res) => {
         if(err) throw err
         console.log(`connected as id ${connection.threadId}`)
         console.log(req.body)
-        connection.query('INSERT INTO employee SET ?', [req.body], (err, rows) => {
+        connection.query('INSERT INTO user SET ?', [req.body], (err, rows) => {
             connection.release() // return the connection to pool
 
             if(!err) {

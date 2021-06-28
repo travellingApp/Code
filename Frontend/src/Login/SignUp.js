@@ -71,7 +71,7 @@ const Submit =(event)=>{
       "fname" : State.FName,
       "lname" : State.LName,
       "email" : State.Email,
-      "pw" : State.Password,
+      "password" : State.Password,
       "bday" : State.Bday
     })
     .then(function (response) {
