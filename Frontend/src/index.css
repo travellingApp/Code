@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -18,12 +19,13 @@ code {
 
 body {
   min-height: 100vh;
-  display: flex;
+  min-width: 100vh;
   font-weight: 400;
   font-family: sans-serif;
-  background: #12c2e9;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+    background: #12c2e9; 
+    background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  
+    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); 
   
 }
 
@@ -36,6 +38,33 @@ body, html, .App, #root, .outer {
   background-color: #ffffff;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
 }
+.myGrid {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 10fr;
+  grid-template-areas: 
+  "nava nava nava"
+  "lside main rside";
+  grid-gap: 0.2rem;
+}
+
+#nava{
+  grid-area: nava;
+}
+
+#main{
+  grid-area: main;
+}
+
+#lside{
+  grid-area: lside;
+}
+
+#rside{
+  grid-area: rside;
+}
+
 
 .outer {
   display: flex;
